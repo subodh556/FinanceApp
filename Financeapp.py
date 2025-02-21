@@ -4,6 +4,9 @@ from crewai import Agent, Task, Crew
 from crewai_tools import ScrapeWebsiteTool
 import time
 from dotenv import load_dotenv , find_dotenv
+from crewai import LLM
+
+
 
 # os.environ["OPENAI_MODEL_NAME"] = 'gpt-3.5-turbo'
 _ = load_dotenv(find_dotenv())
@@ -14,15 +17,11 @@ os.environ["OPENAI_API_KEY"] = "dummy-key"
 
 HUGGINGFACEHUB_API_TOKEN = os.environ["HUGGINGFACEHUB_API_TOKEN"] 
 
-from crewai import LLM
-
 chatm = LLM(
     model="huggingface/mistralai/Mistral-7B-Instruct-v0.3",
-    api_key = HUGGINGFACEHUB_API_TOKEN,
+    api_key=os.getenv("HUGGINGFACEHUB_API_TOKEN"),
     max_tokens=500,
-    
 )
-
 
 #Streamlit app configuration
 
