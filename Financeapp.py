@@ -6,6 +6,10 @@ import time
 from dotenv import load_dotenv , find_dotenv
 from crewai import LLM
 
+__import__('pysqlite3')
+import sys
+sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
+
 
 
 # os.environ["OPENAI_MODEL_NAME"] = 'gpt-3.5-turbo'
