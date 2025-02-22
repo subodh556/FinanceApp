@@ -1,3 +1,7 @@
+__import__('pysqlite3')
+import sys
+sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
+
 import os
 import streamlit  as st
 from crewai import Agent, Task, Crew
@@ -6,9 +10,7 @@ import time
 from dotenv import load_dotenv , find_dotenv
 from crewai import LLM
 
-__import__('pysqlite3')
-import sys
-sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
+
 
 
 
